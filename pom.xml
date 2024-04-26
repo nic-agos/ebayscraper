@@ -19,6 +19,21 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>5.2.5</version>
+    </dependency>
+
+    <dependency>
+      <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>5.2.5</version>
+    </dependency>
+
     <dependency>
       <!-- jsoup HTML parser library @ https://jsoup.org/ -->
       <groupId>org.jsoup</groupId>
@@ -32,6 +47,7 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
   </dependencies>
 
   <build>
