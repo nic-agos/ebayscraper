@@ -12,7 +12,7 @@ public class Controller {
 
         ReadDataFromExcel readerClass = new ReadDataFromExcel();
 
-        Map<Integer, Item> treeMapReaden = new TreeMap<>();
+        Map<Integer, Product> treeMapReaden = new TreeMap<>();
         treeMapReaden = readerClass.reader(inputFilePath);
 
         int treeMapReadenSize = treeMapReaden.size();
@@ -21,14 +21,21 @@ public class Controller {
 
         Scraper scraper = new Scraper();
 
+        int counter = 1;
+
         for (Integer pos: treeMapReaden.keySet()){
             String tempUrl = String.valueOf(treeMapReaden.get(pos).getUrl());
             String tempName = String.valueOf(treeMapReaden.get(pos).getName());
 
-            Double tempPrice = scraper.scrapeItemPrice(tempUrl);
+            Product tempProduct = scraper.scrapeProduct(tempUrl);
+            Double tempPrice = tempProduct.getPrice();
+            String tempSeller = tempProduct.getSeller();
             treeMapReaden.get(pos).setPrice(tempPrice);
+            treeMapReaden.get(pos).setSeller(tempSeller);
             
-            System.out.println("Price for " + tempName + " is: " + tempPrice);
+            System.out.println("Price for product # " + counter + " -> " + tempName + " is: " + tempPrice + " EUR");
+
+            counter += 1;
         }
 
         String outputPath = writerClass.writer(treeMapReaden, outputFolder);

@@ -17,7 +17,7 @@ import java.util.Date;
 
 public class WriteDataToExcel {
 
-    public String writer(Map<Integer, Item> treeMap, String outputFolder) throws IOException {
+    public String writer(Map<Integer, Product> treeMap, String outputFolder) throws IOException {
 
         // Create a workbook object
         XSSFWorkbook workbook = new XSSFWorkbook();
@@ -31,7 +31,7 @@ public class WriteDataToExcel {
         // This data needs to be written (Object[])
         Map<Integer, Object[]> itemsData = new TreeMap<Integer, Object[]>();
 
-        itemsData.put(1, new Object[] { "Name", "Price", "URL" });
+        itemsData.put(1, new Object[] { "Name", "Price", "Seller", "URL" });
 
         int lineCounter = 2;
 
@@ -39,6 +39,7 @@ public class WriteDataToExcel {
             itemsData.put(lineCounter, new Object[] {
                     String.valueOf(treeMap.get(pos).getName()),
                     String.valueOf(treeMap.get(pos).getPrice()),
+                    String.valueOf(treeMap.get(pos).getSeller()),
                     String.valueOf(treeMap.get(pos).getUrl()),
             });
             lineCounter++;

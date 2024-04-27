@@ -1,20 +1,23 @@
 package com.ebayscraper;
 
-public class Item {
+public class Product {
 
     private String name;
     private String url;
     private Double price;
+    private String seller;
 
-    public Item(){
+    public Product(){
 
     }
 
-    public Item(String itemName, Double itemPrice, String itemUrl){
+    public Product(String productName, Double productPrice, String productSeller, String productUrl){
         
-        name = itemName;
-        url = itemUrl;
-        price = itemPrice;
+        name = productName;
+        url = productUrl;
+        seller = productSeller;
+        price = productPrice;
+
 
     }
 
@@ -31,6 +34,10 @@ public class Item {
         return this.price;
     }
 
+    public String getSeller(){
+        return this.seller;
+    }
+
     public void setName(String name){
         this.name = name;
     }
@@ -41,6 +48,10 @@ public class Item {
 
     public void setPrice(Double price){
         this.price = price;
+    }
+
+    public void setSeller(String seller){
+        this.seller = seller;
     }
     
 }

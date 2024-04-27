@@ -14,9 +14,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ReadDataFromExcel {
     
-    public Map<Integer, Item> reader(String inputPath) throws IOException{
+    public Map<Integer, Product> reader(String inputPath) throws IOException{
 
-        Map<Integer, Item> treeMap = new TreeMap<>();
+        Map<Integer, Product> treeMap = new TreeMap<>();
 
         File inputFile = new File(inputPath);
 
@@ -40,7 +40,7 @@ public class ReadDataFromExcel {
             Iterator<Cell> cellIterator = row.cellIterator();
 
             int column = 1;
-            Item tempItem = new Item();
+            Product tempItem = new Product();
             
             while (cellIterator.hasNext()) {
 
