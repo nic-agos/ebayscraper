@@ -6,6 +6,19 @@ public class Item {
     private String url;
     private Double price;
 
+    public Item(){
+
+    }
+
+    public Item(String itemName, Double itemPrice, String itemUrl){
+        
+        name = itemName;
+        url = itemUrl;
+        price = itemPrice;
+
+    }
+
+
     public String getName(){
         return this.name;
     }
