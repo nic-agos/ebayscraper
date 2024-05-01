@@ -13,6 +13,11 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ReadDataFromExcel {
+
+    /*This method takes as input the path to an Excel file consisting of a single column where 
+    each row contains the link to an eBay product that you want to import. It returns an object map 
+    of type Product where the primary key is an integer that is incremented, starting at 1, each time 
+    a new link is read from the Excel file */
     
     public Map<Integer, Product> reader(String inputPath) throws IOException{
 
@@ -39,7 +44,6 @@ public class ReadDataFromExcel {
             //For each row, iterate through all the columns
             Iterator<Cell> cellIterator = row.cellIterator();
 
-            int column = 1;
             Product tempItem = new Product();
             
             while (cellIterator.hasNext()) {
@@ -51,14 +55,7 @@ public class ReadDataFromExcel {
 
                     case STRING:
                         
-                        if (column == 1){
-                            tempItem.setName(cell.getStringCellValue());
-                        }
-                        if (column == 2){
-                            tempItem.setUrl(cell.getStringCellValue());
-                        }
-
-                        column += 1;
+                        tempItem.setUrl(cell.getStringCellValue());
                         break;
                 }
             }

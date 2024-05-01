@@ -62,11 +62,7 @@ public class Scraper {
 
     String rawPrice = doc.body().select("div.x-price-primary").select("span.ux-textspans").text();
     
-    String stringPrice = rawPrice.replace("EUR ", "");
-
-    stringPrice = stringPrice.replace(",", ".");
-
-    Double price = Double.parseDouble(stringPrice);
+    String price = rawPrice.replace("EUR ", "");
 
     String rawName = doc.select("div.x-item-title").text();
 

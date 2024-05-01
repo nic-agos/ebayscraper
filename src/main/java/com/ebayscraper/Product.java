@@ -4,14 +4,14 @@ public class Product {
 
     private String name;
     private String url;
-    private Double price;
+    private String price;
     private String seller;
 
     public Product(){
 
     }
 
-    public Product(String productName, Double productPrice, String productSeller, String productUrl){
+    public Product(String productName, String productPrice, String productSeller, String productUrl){
         
         name = productName;
         url = productUrl;
@@ -30,7 +30,7 @@ public class Product {
         return this.url;
     }
 
-    public Double getPrice(){
+    public String getPrice(){
         return this.price;
     }
 
@@ -46,7 +46,7 @@ public class Product {
         this.url = url;
     }
 
-    public void setPrice(Double price){
+    public void setPrice(String price){
         this.price = price;
     }
 
